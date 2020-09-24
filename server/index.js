@@ -39,7 +39,7 @@ const data = {
       companyWebsite: 'www.google.com',
       location: 'USA, Montana',
       jobTitle: 'Housekeeping',
-      description: 'So much responsibility....Overloaaaaaad',
+      description: 'So much responsibility.',
       startDate: '01/01/2010',
       endDate: '01/01/2011'
     }
@@ -52,12 +52,15 @@ app.prepare().then(() => {
   // Construct a schema, using GRAPHQL schema language
   const schema = buildSchema(`
       type Porfolio {
-        _id: ID!
-        title: String
-        content: String
+        _id: ID,
+        title: String,
+        company: String,
+        companyWebsite: String,
+        location: String,
         jobTitle: String,
-        daysOfExperience: Int,
-        isCurrentlyEmployed: Boolean
+        description: String,
+        startDate: String,
+        endDate: String
       }
       type Query {
         hello: String
