@@ -1,8 +1,8 @@
 const apiCall = () => {
     return new Promise((res, req) => {
         setTimeout(() => {
-            res({ testData: 'ust some data set' })
-        }, 100)
+            res({ testData: 'use some data set' })
+        }, 200)
     })
 }
 
