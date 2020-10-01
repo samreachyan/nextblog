@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
+    "@apollo/react-ssr": "^4.0.0",
     "apollo-boost": "^0.4.9",
     "apollo-server-express": "^2.18.1",
     "axios": "^0.20.0",
@@ -14,6 +15,7 @@
     "graphql": "^15.3.0",
     "isomorphic-unfetch": "^3.1.0",
     "next": "^9.5.3",
+    "next-with-apollo": "^5.1.0",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
