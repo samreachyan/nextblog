@@ -23,7 +23,6 @@ app.prepare().then(() => {
   const typeDefs = gql(`
       ${portfolioTypes}
       type Query {
-        hello: String
         portfolio(id: ID): Portfolio
         portfolios: [Portfolio]
       }
