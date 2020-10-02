@@ -25,11 +25,12 @@ exports.portfolioMutations = {
 }
 
 exports.userMutations = {
-  signIn: (root, args, ctx) => {
-    return ctx.models.User.signIn()
+  signIn: (root, { input }, ctx) => {
+    return ctx.models.User.signIn(input, ctx);
   },
-  signUp: (root, args, ctx) => {
-    return ctx.models.User.signUP()
+  signUp: async (root, { input }, ctx) => {
+    const registeredUser = await ctx.models.User.signUp(input);
+    return registeredUser._id;
   },
   signOut: (root, args, ctx) => {
     return ctx.models.User.signOut()
