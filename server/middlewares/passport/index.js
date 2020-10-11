@@ -4,6 +4,10 @@ const User = require('../../database/models/user')
 const user = require('../../database/models/user')
 
 exports.init = (passport) => {
+    passport.serializeUser((user, done) => {
+        done(null, user.id)
+    })
+
     passport.use('graphql', GraphqlStrategy((options, password, done) => {
         User.findOne({ email}, (error, user) => {
             if (error) return done(error)

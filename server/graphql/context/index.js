@@ -10,8 +10,10 @@ const authenticateUser = (req, options) => {
             }
 
             if (user) {
-                req.helloWorld()
-                return resolve(user)
+                req.login(user, (error) => {
+                    if(error) return reject(new Error(error))
+                    return resolve(user)
+                })
             } else {
                 return reject(new Error('Invalid password or email'))
             }
