@@ -1,14 +1,21 @@
 const passport = require('passport')
 
-
 const authenticateUser = (options) => {
-    console.log(`Authenticating called`)
-    const done = () => {
-        console.log('Calling done')
-    }
-    const authFn = passport.authenticate('graphql', options, done)
-    authFn()
-    return true;
+    return new Promise(( resolve, reject) => {
+        console.log('Calling authentication User')
+        const done = () => {
+            // Here we will get user we can save session to DB
+            if (err) {
+                return reject(new Error(err))
+            }
+
+            if (user) {
+                return resolve(user)
+            }
+        }
+        const authFn = passport.authenticate('graphql', options, done)
+        authFn()
+    })
 }
   
 exports.buildAuthContext = () => {
