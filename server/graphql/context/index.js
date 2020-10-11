@@ -11,6 +11,8 @@ const authenticateUser = (options) => {
 
             if (user) {
                 return resolve(user)
+            } else {
+                return reject(new Error('Invalid password or email'))
             }
         }
         const authFn = passport.authenticate('graphql', options, done)

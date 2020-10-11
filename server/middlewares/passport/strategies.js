@@ -19,14 +19,13 @@ class GrpahqlStrategy extends Strategy {
     authenticate(_, options) {
         console.log('Calling authenticate in strategy!')
 
-        const done = () => {
-            if (true) {
-                this.error('Some nasty error!')
-            }
+        const done = ( error, user, info ) => {
+            if (error) return this.error(error)
+            if (!user) return this.fail(401)
             // If user then can 'success' otherwise call 'fail' or 'error'
         }
 
-        this.verify(options, done)
+        return this.success(user, info)
     }
 }
 
